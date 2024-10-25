@@ -19,7 +19,6 @@ export default function GameOverview() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-xl text-center max-w-3xl mx-auto mb-12 text-grey-300"
         >
-          Social Points is an innovative blockchain-based game that combines real-world social interactions with cryptocurrency rewards. 
           Use NFC-enabled devices to interact anonymously, compete for points, and win ETH prizes while maintaining privacy through zero-knowledge proofs.
         </motion.p>
         <motion.div 
