@@ -1,5 +1,4 @@
-import { FaUserPlus, FaMobileAlt,  FaTrophy } from 'react-icons/fa';
-
+import { FaUserPlus, FaMobileAlt, FaTrophy } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const steps = [
@@ -10,7 +9,7 @@ const steps = [
 
 export default function HowToPlay() {
   return (
-    <section id="how-to-play" className="py-20 ">
+    <section id="how-to-play" className="py-20">
       <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 50 }}
@@ -20,11 +19,11 @@ export default function HowToPlay() {
         >
           How to Play
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-col items-center">
           {steps.map((step, index) => (
             <motion.div 
               key={index} 
-              className="dark:bg-gray-900 dark:bg-opacity-50 p-6 rounded-lg text-center"
+              className="dark:bg-gray-900 dark:bg-opacity-50 p-6 rounded-lg text-center mb-8 w-full max-w-md"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
