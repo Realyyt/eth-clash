@@ -1,4 +1,4 @@
-import { FaUserPlus, FaMobileAlt, FaExchangeAlt, FaTrophy } from 'react-icons/fa';
+import { FaUserPlus, FaMobileAlt,  FaTrophy } from 'react-icons/fa';
 
 import { motion } from 'framer-motion';
 
