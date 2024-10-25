@@ -19,7 +19,7 @@ export default function GameOverview() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-xl text-center max-w-3xl mx-auto mb-12 text-grey-300"
         >
-         Transform your social life into an exciting adventure! Imagine earning real ETH just by at the party. It's not just networking – it's your new favorite game!</motion.p>
+         Transform your social life into an exciting adventure! Imagine earning real ETH just by at the party. It&apos;s not just networking &ndash; it&apos;s your new favorite game!</motion.p>
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
