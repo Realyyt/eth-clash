@@ -30,7 +30,15 @@ export default function Testimonials() {
             >
               <p className="mb-4 italic text-white">&quot;{testimonial.quote}&quot;</p>
               <div className="flex items-center">
-                <Image src={testimonial.avatar} alt={testimonial.name} width={48} height={48} className="w-12 h-12 rounded-full mr-4" />
+                <Image 
+                  src={testimonial.avatar} 
+                  alt={testimonial.name} 
+                  width={48} 
+                  height={48} 
+                  className="w-12 h-12 rounded-full mr-4" 
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
+                />
                 <span className="font-semibold text-white">{testimonial.name}</span>
               </div>
             </motion.div>

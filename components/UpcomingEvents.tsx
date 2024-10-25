@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const events = [
-    { name: 'Paris Blockchain Week', date: 'April 9-11, 2024', location: 'Paris, France', image: '/paris.jpeg' },
+  { name: 'Paris Blockchain Week', date: 'April 9-11, 2024', location: 'Paris, France', image: '/paris.jpeg' },
   { name: 'Devcon Week', date: 'November 9-17, 2024', location: 'TBA', image: '/devcon.png' },
   { name: 'ETH India', date: 'December 6-8, 2024', location: 'India', image: '/ethindia.png' },
 ];
@@ -22,7 +22,21 @@ export default function UpcomingEvents() {
                     layout="fill"
                     objectFit="cover"
                     className="rounded-lg"
+                    priority={index < 3}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
                   />
+                  {/* 
+                  This code adds a blur placeholder for images:
+                  - 'placeholder="blur"' enables the blur effect
+                  - 'blurDataURL' provides a tiny, base64-encoded image
+                    that's shown while the main image is loading
+                  - The provided blurDataURL is a 1x1 pixel transparent PNG,
+                    which creates a subtle loading effect
+                  This improves perceived performance and user experience
+                  by showing a placeholder instead of empty space.
+                  */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
                     <h3 className="text-2xl font-semibold mb-2 text-center">{event.name}</h3>
                     <p className="mb-2 text-center">{event.date}</p>
