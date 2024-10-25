@@ -113,10 +113,11 @@ const ParticleEffect: React.FC = () => {
     window.addEventListener('resize', handleResize);
 
     // Cleanup
+    const mountNode = mountRef.current;
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
-      mountRef.current?.removeChild(renderer.domElement);
+      mountNode?.removeChild(renderer.domElement);
     };
   }, []);
 

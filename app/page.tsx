@@ -11,9 +11,9 @@ import Leaderboard from '@/components/Leaderboard';
 import Testimonials from '@/components/Testimonials';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import FAQ from '@/components/FAQ';
-import Download from '@/components/Download';
+//import Download from '@/components/Download';
 import AnimatedSection from '@/components/AnimatedSection';
-import DarkModeToggle from '@/components/DarkModeToggle';
+//import DarkModeToggle from '@/components/DarkModeToggle';
 import ParticleEffect from '@/components/ParticleEffect';
 
 export default function Home() {
@@ -28,9 +28,9 @@ export default function Home() {
     }
   }, []);
 
-  const toggleDarkMode = () => {
+  {/*const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
-  };
+  };*/}
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

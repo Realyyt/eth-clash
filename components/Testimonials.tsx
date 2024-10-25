@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const testimonials = [
-  { name: 'Chuks', quote: "Social Points has revolutionized how I network at crypto events. It's fun and rewarding!", avatar: '/APE.jpg' },
+  { name: 'Chuks', quote: "Social Points has revolutionized how I network at crypto events. It&apos;s fun and rewarding!", avatar: '/APE.jpg' },
   { name: 'Realyt', quote: "The privacy features are top-notch!", avatar: '/READ.jpg' },
   { name: 'yaranaka', quote: "Earning ETH while socializing? Count me in! This game is addictive in the best way possible.", avatar: '/INDIA.jpg' },
 ];
@@ -27,9 +28,9 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
             >
-              <p className="mb-4 italic text-white">"{testimonial.quote}"</p>
+              <p className="mb-4 italic text-white">&quot;{testimonial.quote}&quot;</p>
               <div className="flex items-center">
-                <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full mr-4" />
+                <Image src={testimonial.avatar} alt={testimonial.name} width={48} height={48} className="w-12 h-12 rounded-full mr-4" />
                 <span className="font-semibold text-white">{testimonial.name}</span>
               </div>
             </motion.div>

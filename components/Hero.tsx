@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+//import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ export default function Hero() {
       setCurrentBg((prev) => (prev + 1) % backgrounds.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   return (
     <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
