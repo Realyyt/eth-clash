@@ -5,12 +5,11 @@ import { motion } from 'framer-motion';
 import ParticleEffect from '@/components/ParticleEffect';
 
 export default function Coming() {
-  const [countdown, setCountdown] = useState({ days: 10, hours: 0, minutes: 0, seconds: 0 });
-  const [email, setEmail] = useState('');
+  const [countdown, setCountdown] = useState({ days: 13, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 10);
+    targetDate.setDate(targetDate.getDate() + 13);
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -33,15 +32,6 @@ export default function Coming() {
 
     return () => clearInterval(timer);
   }, []);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Here you would typically handle the form submission
-    // For this example, we'll just log to the console
-    console.log(`Notification request for ${email} sent to emmaisaac032@gmail.com`);
-    // Reset the email input after submission
-    setEmail('');
-  };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center">
@@ -79,27 +69,6 @@ export default function Coming() {
             </div>
           ))}
         </div>
-        <motion.form 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="flex flex-col md:flex-row justify-center items-center"
-          onSubmit={handleSubmit}
-        >
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="px-4 py-2 mb-2 md:mb-0 md:mr-2 w-full md:w-auto rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300"
-          >
-            Notify Me
-          </button>
-        </motion.form>
       </div>
     </div>
   );
