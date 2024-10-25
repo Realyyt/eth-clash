@@ -17,27 +17,18 @@ import AnimatedSection from '@/components/AnimatedSection';
 import ParticleEffect from '@/components/ParticleEffect';
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     smoothScroll();
-    // Check user's preferred color scheme
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      setIsDarkMode(false);
-    }
   }, []);
-
-  {/*const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };*/}
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
+    <div className="min-h-screen text-white">
       <ParticleEffect />
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent py-4">
         <nav className="container mx-auto px-6 flex justify-between items-center">
@@ -46,13 +37,12 @@ export default function Home() {
             <svg className="floating-logo logo1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180.58 65.54" width="45" height="16.385">
               {/* SVG content remains unchanged */}
             </svg>
-          {/*<span className="text-xl md:text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Social Points</span>*/}
           </Link>
           <div className="hidden md:flex items-center space-x-8">
             <a href="#game-overview" className="text-white hover:text-blue-400 transition-colors text-lg">About</a>
             <a href="#how-to-play" className="text-white hover:text-blue-400 transition-colors text-lg">How to Play</a>
             <a href="#leaderboard" className="text-white hover:text-blue-400 transition-colors text-lg">Leaderboard</a>
-            <Link href="/comingsoon" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition-colors text-lg font-semibold shadow-lg hover:shadow-xl text-center" onClick={toggleMenu}>
+            <Link href="/comingsoon" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition-colors text-lg font-semibold shadow-lg hover:shadow-xl text-center">
               Play Now
             </Link>
           </div>
@@ -76,7 +66,7 @@ export default function Home() {
         )}
       </header>
 
-      <main className="dark:bg-gray-900 dark:text-white">
+      <main>
         <Hero />
         <GameOverview />
         <KeyFeatures />
@@ -97,7 +87,7 @@ export default function Home() {
         </AnimatedSection>
       </main>
 
-      <footer className="bg-opacity-50 bg-gray-800 text-white py-8 dark:bg-gray-900 dark:bg-opacity-50">
+      <footer className="bg-opacity-50 bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-center md:text-left">&copy; 2023 Social Points. All rights reserved.</p>

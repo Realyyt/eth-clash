@@ -8,7 +8,7 @@ const ParticleEffect: React.FC = () => {
     if (!mountRef.current) return;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x000000); // Set background to black
+    scene.background = new THREE.Color(0x000000); // Always set background to black
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
 
@@ -17,7 +17,7 @@ const ParticleEffect: React.FC = () => {
 
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 80; // Further reduced particle count
+    const particlesCount = 80;
 
     const positions = new Float32Array(particlesCount * 3);
     const colors = new Float32Array(particlesCount * 3);
@@ -25,7 +25,7 @@ const ParticleEffect: React.FC = () => {
 
     for (let i = 0; i < particlesCount * 3; i++) {
       positions[i] = (Math.random() - 0.5) * 2;
-      colors[i] = Math.random();
+      colors[i] = Math.random() * 0.5 + 0.5; // Brighter colors for visibility
     }
 
     for (let i = 0; i < particlesCount; i++) {
@@ -51,10 +51,10 @@ const ParticleEffect: React.FC = () => {
         }
       `,
       fragmentShader: `
-        uniform vec3 color;
+        varying vec3 vColor;
         void main() {
           if (length(gl_PointCoord - vec2(0.5, 0.5)) > 0.475) discard;
-          gl_FragColor = vec4(color, 1.0);
+          gl_FragColor = vec4(vColor, 1.0);
         }
       `,
     });
@@ -78,21 +78,18 @@ const ParticleEffect: React.FC = () => {
       const scales = particlesGeometry.attributes.scale.array as Float32Array;
       for (let i = 0; i < particlesCount; i++) {
         const i3 = i * 3;
-        const zoomFactor = Math.sin(time) * 0.5 + 0.5; // Oscillates between 0 and 1
+        const zoomFactor = Math.sin(time) * 0.5 + 0.5;
 
-        // Zoom effect
         positions[i3] *= 1 + zoomFactor * 0.1;
         positions[i3 + 1] *= 1 + zoomFactor * 0.1;
         positions[i3 + 2] *= 1 + zoomFactor * 0.1;
 
-        // Reset particles if they go too far
         if (Math.abs(positions[i3]) > 1 || Math.abs(positions[i3 + 1]) > 1 || Math.abs(positions[i3 + 2]) > 1) {
           positions[i3] = (Math.random() - 0.5) * 2;
           positions[i3 + 1] = (Math.random() - 0.5) * 2;
           positions[i3 + 2] = (Math.random() - 0.5) * 2;
         }
 
-        // Update scale for additional visual effect
         scales[i] = Math.abs(Math.sin(time + i * 0.1)) * 0.5 + 0.5;
       }
       particlesGeometry.attributes.position.needsUpdate = true;
