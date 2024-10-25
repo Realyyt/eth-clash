@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 const steps = [
   { icon: FaUserPlus, title: 'Register', description: 'Create an account and link your ENS name' },
   { icon: FaMobileAlt, title: 'Interact', description: 'Scan other players using NFC at real-world events' },
-  { icon: FaExchangeAlt, title: 'Submit Proofs', description: 'Upload encrypted proofs to the blockchain' },
   { icon: FaTrophy, title: 'Earn Points', description: 'Gain points and climb the leaderboard' },
 ];
 
