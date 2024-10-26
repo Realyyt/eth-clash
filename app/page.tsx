@@ -94,6 +94,7 @@ export default function Home() {
             <div className="space-x-4 mt-4 md:mt-0">
               <a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-blue-400 transition-colors">Terms of Service</a>
+              <a href="https://x.com/LytitSocia44706" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Twitter</a>
             </div>
           </div>
         </div>
